@@ -1,45 +1,58 @@
 angular.module('waitstaff',[
     ])
 .controller('WaitstaffController', ['$scope', function($scope){
-
-	$scope.count = 0;
-	$scope.subtotal = 0;
-	$scope.tip = 0;
+// This will be the controller variables
+var vm = this;
+	vm.count = 0;
+	vm.subtotal = 0;
+	vm.tip = 0;
 
 	var tipTotals = [];
-	$scope.tipTotals = tipTotals;
+	vm.tipTotals = tipTotals;
 
-	$scope.submitOrder = function() {
-		$scope.count += 1;
-		$scope.tax = $scope.price * ($scope.taxRate/100);
-		$scope.subtotal = $scope.price + $scope.tax;
-		$scope.tip = $scope.price * ($scope.tipPercentage/100);
-		$scope.tipTotals.push($scope.tip);
+// This will be the controller methods
+vm.submitOrder = submitOrder;
+vm.cancel = cancel;
+vm.reset = reset;
+vm.calculateTipTotal = calculateTipTotal;
+
+activate();
+
+	function activate() {
+		vm.taxRate=5;
 	}
 
-	$scope.calculateTipTotal = function() {
+	function submitOrder() {
+		vm.count += 1;
+		vm.tax = vm.price * (vm.taxRate/100);
+		vm.subtotal = vm.price + vm.tax;
+		vm.tip = vm.price * (vm.tipPercentage/100);
+		vm.tipTotals.push(vm.tip);
+	}
+
+	 function calculateTipTotal() {
 		var tipTotal = 0;
-		for (var i=0; i<$scope.tipTotals.length; i++) {
+		for (var i=0; i<vm.tipTotals.length; i++) {
 			tipTotal+=tipTotals[i];
 		}
 		return tipTotal;
 	}
 
-	$scope.cancel = function() {
-		$scope.price = '';
-		$scope.tipPercentage = '';
-		$scope.taxRate = '';
+	function cancel () {
+		vm.price = '';
+		vm.tipPercentage = '';
+		vm.taxRate = '';
 	}
 
-	$scope.reset = function() {
-		$scope.price = '';
-		$scope.tipPercentage = '';
-		$scope.taxRate = '';
-		$scope.count = 0;
-		$scope.subtotal = 0;
-		$scope.tip = 0;
-		$scope.tax = 0;
+	function reset() {
+		vm.price = '';
+		vm.tipPercentage = '';
+		vm.taxRate = '';
+		vm.count = 0;
+		vm.subtotal = 0;
+		vm.tip = 0;
+		vm.tax = 0;
 		var tipTotals = [];
-		$scope.tipTotals = tipTotals;
+		vm.tipTotals = tipTotals;
 	}
 }]);
