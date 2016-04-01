@@ -1,0 +1,19 @@
+{
+  "name": "waitstaff-calculator",
+  "homepage": "https://github.com/nicolechie/waitstaff-calculator",
+  "authors": [
+    "nicolechie <nicolechie@mac.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

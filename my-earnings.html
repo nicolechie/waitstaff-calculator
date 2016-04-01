@@ -1,0 +1,26 @@
+          <div class="row bmargin20">
+            <div class="col-md-10 col-md-offset-1 border">
+              <div class="row bottomBorder">
+                <h2>My Earnings Info</h2>
+              </div>
+              <div class="col-md-7 rpad10">
+                <table class="table table-condensed tmargin15">
+                  <tr class="noBorder">
+                    <td class="noBorder text-right">Tip Total</td><td class="noBorder">{{ vm.calculateTipTotal() | currency }}</td>
+                  </tr>
+                  <tr>
+                    <td class="noBorder text-right">Meal Count</td><td class="noBorder">{{ vm.count }}</td>
+                  </tr>
+                  <tr>
+                    <td class="noBorder text-right">Average Tip Per Meal</td><td class="noBorder">{{ vm.count/vm.calculateTipTotal() | currency }}</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="row text-center">
+            <div class="col-md-2 col-md-offset-5">
+              <button type="submit" class="btn btn-default pull-right" ng-click="vm.reset()">Reset</button>
+            </div>
+          </div>
+

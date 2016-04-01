@@ -1,113 +1,36 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en" ng-app="waitstaff">
   <head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <title>Waitstaff Calculator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js">
-   </script>
-    <script src="https://code.angularjs.org/1.5.0/angular-messages.js">
-   </script>
-    <script src="js/waitstaff.controller.js"></script>
   </head>
 
-  <body ng-app="waitstaff">
-
+  <body>
+    
     <div class="container-fluid" ng-controller="WaitstaffController as vm">
       <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          
-          <h1 class="text-center bmargin20">Waitstaff Calculator</h1>
-
-          <div class="col-md-6 border">
-            <div class="row bottomBorder">
-              <h2>Enter the Meal Details</h2>
-            </div>
-            <form class="form-horizontal tmargin15" ng-submit="vm.submitOrder()">
-              <div class="form-group rmargin0">
-                <label for="baseMealPrice" class="col-sm-5 control-label">Base Meal Price: $</label>
-                <div class="col-sm-7">
-                  <input type="number" class="form-control" id="baseMealPrice" step="0.01" ng-model="vm.price">
-                </div>
-              </div>
-              <div class="form-group rmargin0">
-                <label for="taxPercentage" class="col-sm-5 control-label">Tax Rate: %</label>
-                <div class="col-sm-7">
-                  <input type="number" class="form-control" id="taxPercentage" ng-model="vm.taxRate">
-                </div>
-              </div>
-              <div class="form-group rmargin0">
-                <label for="tipPercentage" class="col-sm-5 control-label">Tip Percentage: %</label>
-                <div class="col-sm-7">
-                  <input type="number" class="form-control" id="tipPercentage" ng-model="vm.tipPercentage">
-                </div>
-              </div>
-              <div class="form-group tmargin131">
-                <div class="col-sm-offset-2 col-sm-10 text-center">
-                  <button type="submit" class="btn btn-default" 
-                  >Submit</button>
-                  <button type="submit" class="btn btn-default" 
-                  ng-click="vm.cancel()">Cancel</button>
-                </div>
-              </div>
-            </form>
+        <div class="col-md-6 col-md-offset-3">
+          <div class="text-center bmargin20">
+            <h1 class="bmargin20">Waitstaff Calculator</h1>
+            <nav>
+              <a ng-href="/">Home</a> |
+              <a ng-href="/new-meal">New Meal</a> |
+              <a ng-href="/my-earnings">My Earnings</a>
+            </nav>
           </div>
 
-          <div class="col-md-1">
-          </div>
-
-          <div class="col-md-5">
-            <div class="row border">
-              <div class="col-md-12">
-                <div class="row bottomBorder">
-                  <h2>Customer Charges</h2>
-                </div>
-              </div>
-              <div class="col-md-3 col-md-offset-1 rpad10">
-                <table class="table table-condensed tmargin15">
-                  <tr class="noBorder">
-                    <td class="noBorder text-right">Subtotal</td><td class="noBorder">{{ vm.subtotal | currency }}</td>
-                  </tr>
-                  <tr>
-                    <td class="noBorder text-right">Tip</td><td class="noBorder">{{ vm.tip | currency }}</td>
-                  </tr>
-                  <tr>
-                    <td class="text-right">Total</td><td>{{ vm.tip + vm.subtotal | currency}}</td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-            <br/>
-
-          <div class="row border">
-            <div class="col-md-12">
-              <div class="row bottomBorder">
-                <h2>My Earnings Info</h2>
-              </div>
-            </div>
-            <div class="col-md-7 rpad10">
-              <table class="table table-condensed tmargin15">
-                <tr class="noBorder">
-                  <td class="noBorder text-right">Tip Total</td><td class="noBorder">{{ vm.calculateTipTotal() | currency }}</td>
-                </tr>
-                <tr>
-                  <td class="noBorder text-right">Meal Count</td><td class="noBorder">{{ vm.count }}</td>
-                </tr>
-                <tr>
-                  <td class="noBorder text-right">Average Tip Per Meal</td><td class="noBorder">{{ vm.count/vm.calculateTipTotal() | currency }}</td>
-                </tr>
-              </table>
-            </div>
-          </div>
+          <div ng-view></div>
 
         </div>
       </div>
     </div>
 
-    <button type="submit" class="btn btn-default pull-right" 
-    ng-click="vm.reset()">Reset</button>
-    </div>
-
+    <script type="text/javascript" src="js/bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="js/bower_components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="js/waitstaff.controller.js"></script>
   </body>
 </html>
