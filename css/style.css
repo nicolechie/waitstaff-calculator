@@ -40,4 +40,33 @@ hr {
 .bmargin20 {
 	margin-bottom: 20px;	
 }
-
+.animate-view-container { 
+	position:relative; 
+	min-height: 100%;
+}
+.animate-view.ng-enter,
+.animate-view.ng-leave {
+    transition:1s linear all;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:#eee;
+}
+.animate-view.ng-enter { 
+	left: 600px; 
+	right: -600px; 
+}
+.animate-view.ng-enter.ng-enter-active { 
+	left: 0; 
+	right:0; 
+}
+.animate-view.ng-leave { 
+	left: 0; 
+	right:0; 
+}
+.animate-view.ng-leave.ng-leave-active { 
+	left: -600px; 
+	right: 600px;  
+}

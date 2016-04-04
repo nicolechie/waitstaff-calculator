@@ -1,28 +1,31 @@
-angular.module('waitstaff',['ngRoute'])
+angular.module('waitstaff',['ngRoute', 'ngAnimate'])
+	.run(function($rootScope, $location) {
+	    $rootScope.$on('$routeChangeError', function() {
+	        console.log('error')
+	        $location.path('/error');
+	    });
+	})
 	.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
-    	$locationProvider.html5Mode(true);
+    	// $locationProvider.html5Mode(true);
         $routeProvider
         .when('/', {
-            templateUrl : 'home.html',
-            controller : 'WaitstaffController'
+            templateUrl : 'home.html'
+            // controller : 'WaitstaffController'
         })
         .when('/new-meal', {
-		    templateUrl : 'new-meal.html',
-		    controller : 'WaitstaffController'
+		    templateUrl : 'new-meal.html'
+		    // controller : 'WaitstaffController'
 		})
 		.when('/my-earnings', {
-		    templateUrl : 'my-earnings.html',
-		    controller : 'WaitstaffController'
+		    templateUrl : 'my-earnings.html'
+		    // controller : 'WaitstaffController'
 		})
 		.when('/error', {
 		    template : '<p>Error - Page Not Found</p>'
 		})
-		// .run(function($rootScope, $location) {
-		//     $rootScope.$on('$routeChangeError', function() {
-		//         $location.path('/error');
-		//     });
-		// })
+		.otherwise('/error');
     }])
+    
 	// .controller('HomeCtrl', ['$scope', function($scope) {
 	//         //empty for now
 	// }])

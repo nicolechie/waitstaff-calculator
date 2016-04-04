@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="waitstaff">
   <head>
-    <base href="/">
+   <!--  <base href="/"> -->
     <meta charset="UTF-8">
     <title>Waitstaff Calculator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,13 +17,15 @@
           <div class="text-center bmargin20">
             <h1 class="bmargin20">Waitstaff Calculator</h1>
             <nav>
-              <a ng-href="/">Home</a> |
-              <a ng-href="/new-meal">New Meal</a> |
-              <a ng-href="/my-earnings">My Earnings</a>
+              <a ng-href="/#/">Home</a> |
+              <a ng-href="/#/new-meal">New Meal</a> |
+              <a ng-href="/#/my-earnings">My Earnings</a>
             </nav>
           </div>
 
-          <div ng-view></div>
+          <div class="animate-view-container">
+            <div ng-view class="animate-view"></div>
+          </div>
 
         </div>
       </div>
@@ -31,6 +33,7 @@
 
     <script type="text/javascript" src="js/bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="js/bower_components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="js/bower_components/angular-animate/angular-animate.js"></script>
     <script type="text/javascript" src="js/waitstaff.controller.js"></script>
   </body>
 </html>
