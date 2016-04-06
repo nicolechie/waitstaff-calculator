@@ -8,19 +8,19 @@ angular.module('waitstaff',['ngRoute', 'ngAnimate'])
 	.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
     	// $locationProvider.html5Mode(true);
         $routeProvider
-        .when('/', {
+        .when('/waitstaff-calculator', {
             templateUrl : 'home.html'
             // controller : 'WaitstaffController'
         })
-        .when('/new-meal', {
+        .when('/waitstaff-calculator/new-meal', {
 		    templateUrl : 'new-meal.html'
 		    // controller : 'WaitstaffController'
 		})
-		.when('/my-earnings', {
+		.when('/waitstaff-calculator/my-earnings', {
 		    templateUrl : 'my-earnings.html'
 		    // controller : 'WaitstaffController'
 		})
-		.when('/error', {
+		.when('/waitstaff-calculator/error', {
 		    template : '<p>Error - Page Not Found</p>'
 		})
 		.otherwise('/error');
