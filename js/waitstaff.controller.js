@@ -8,33 +8,24 @@ angular.module('waitstaff',['ngRoute', 'ngAnimate'])
 	.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
     	// $locationProvider.html5Mode(true);
         $routeProvider
-        .when('/waitstaff-calculator', {
+        .when('/', {
             templateUrl : 'home.html'
             // controller : 'WaitstaffController'
         })
-        .when('/waitstaff-calculator/new-meal', {
+        .when('/new-meal', {
 		    templateUrl : 'new-meal.html'
 		    // controller : 'WaitstaffController'
 		})
-		.when('/waitstaff-calculator/my-earnings', {
+		.when('/my-earnings', {
 		    templateUrl : 'my-earnings.html'
 		    // controller : 'WaitstaffController'
 		})
-		.when('/waitstaff-calculator/error', {
+		.when('/error', {
 		    template : '<p>Error - Page Not Found</p>'
 		})
 		.otherwise('/error');
     }])
     
-	// .controller('HomeCtrl', ['$scope', function($scope) {
-	//         //empty for now
-	// }])
-	// .controller('NewMealCtrl', ['$scope', function($scope) {
-	//         //empty for now
-	// }])
-	// .controller('MyEarningsCtrl', ['$scope', function($scope) {
-	//         //empty for now
-	// }])
 	.controller('WaitstaffController', ['$scope', function($scope){
 	// This will be the controller variables
 	var vm = this;
